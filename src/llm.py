@@ -18,7 +18,10 @@ class LLM:
         response = self.client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
-                {"role": "user", "content": prompt}
+                {"role": "user", "content": prompt}，
+                {"role": "system", "content": "你是一个帮助总结 GitHub 内容 的 AI，使用中文总结回复。"
+                                              "你的总结应当简洁明了，突出重点，并抓住问题的本质，包括任何重要的评论。"
+                                              "请确保识别出主要请求、支持的评论以及提出的任何问题。"}
             ]
         )
         print("After call GPT")
